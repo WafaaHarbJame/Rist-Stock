@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.ChangeUrlActivity">
+
+    <FrameLayout
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/roundBg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:background="@drawable/round_corner_bottom_primary_fill" />
+
+        <ImageView
+            android:id="@+id/logoIcon"
+            app:srcCompat="@drawable/ic_logo"
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/round_corner_white_fill"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_16sdp"
+            android:src="@drawable/ic_logo" />
+
+    </FrameLayout>
+    <com.app.riststock.spichalViews.STextViewBold
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:text="@string/change_url"
+        style="@style/textViewStyleBlue"
+        android:inputType="number"
+        android:gravity="center"
+        android:textSize="@dimen/_20ssp"
+        android:padding="@dimen/_10sdp"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_16sdp"
+    />
+    <com.app.riststock.spichalViews.SEditText
+        android:id="@+id/urlEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/round_corner_white_stroke_gray"
+        android:hint="@string/url"
+        android:inputType="text"
+        android:padding="@dimen/_10sdp"
+        android:text="https://risteh.com/StockTake/BH1/"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_16sdp"
+        android:textStyle="bold" />
+    <com.app.riststock.spichalViews.SButton
+        android:id="@+id/changeUrlBut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:padding="@dimen/_12ssp"
+        style="@style/buttonStyle"
+        android:text="@string/change_url" />
+</androidx.appcompat.widget.LinearLayoutCompat>

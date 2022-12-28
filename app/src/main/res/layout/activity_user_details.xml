@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".activities.UserDetailsActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/tool_bar" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:id="@+id/usernameLy"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_corner_white_stroke_dark_gray"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/user_name"
+            android:padding="@dimen/_6sdp"
+            android:drawablePadding="@dimen/_6sdp"
+            android:src="@drawable/ic_user_name"
+            android:gravity="center_vertical"
+            style="@style/textViewStyle" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_height="wrap_content">
+            <com.app.riststock.spichalViews.STextView
+                android:id="@+id/usernameLb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/user_name"
+                android:textAlignment="viewStart"
+                style="@style/textViewStyle" />
+            <com.app.riststock.spichalViews.STextViewBold
+                android:id="@+id/usernameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:text="IsaTown_002"
+                android:textAlignment="viewStart"
+                style="@style/textViewStyle" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:id="@+id/categoryLy"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_corner_white_stroke_dark_gray"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/categoryIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="@string/user_name"
+            android:padding="@dimen/_6sdp"
+            android:drawablePadding="@dimen/_6sdp"
+            android:src="@drawable/ic_category"
+            style="@style/textViewStyle" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_height="wrap_content">
+            <com.app.riststock.spichalViews.STextView
+                android:id="@+id/categoryLb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Category"
+                android:textAlignment="viewStart"
+                style="@style/textViewStyle" />
+            <com.app.riststock.spichalViews.STextViewBold
+                android:id="@+id/categoryTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:text="Foodstuffs"
+                style="@style/textViewStyle" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:id="@+id/branchLy"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:background="@drawable/round_corner_white_stroke_dark_gray"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/branchIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/user_name"
+                android:padding="@dimen/_6sdp"
+                android:drawablePadding="@dimen/_6sdp"
+                android:src="@drawable/ic_branch"
+                android:gravity="center_vertical"
+                style="@style/textViewStyle" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_height="wrap_content">
+                <com.app.riststock.spichalViews.STextView
+                    android:id="@+id/branchLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:text="@string/Branch_Name"
+                    style="@style/textViewStyle" />
+                <com.app.riststock.spichalViews.STextViewBold
+                    android:id="@+id/branchTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:text="002 - Riffa"
+                    style="@style/textViewStyle" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:id="@+id/areaLy"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/round_corner_white_stroke_dark_gray"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/areaIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="@string/Area_Number"
+            android:padding="@dimen/_6sdp"
+            android:drawablePadding="@dimen/_6sdp"
+            android:src="@drawable/ic_area_number"
+            style="@style/textViewStyle" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_height="wrap_content">
+            <com.app.riststock.spichalViews.STextView
+                android:id="@+id/areaLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Area_Number"
+                android:textAlignment="viewStart"
+                style="@style/textViewStyle" />
+            <com.app.riststock.spichalViews.STextViewBold
+                android:id="@+id/areaTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:text="Foodstuffs"
+                style="@style/textViewStyle" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:id="@+id/LanguageLy"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:background="@drawable/round_corner_white_stroke_dark_gray"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/LanguageIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/user_name"
+                android:padding="@dimen/_6sdp"
+                android:drawablePadding="@dimen/_6sdp"
+                android:src="@drawable/ic_lang"
+                android:gravity="center_vertical"
+                style="@style/textViewStyle" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_weight="1"
+
+                android:layout_height="wrap_content">
+                <com.app.riststock.spichalViews.STextView
+                    android:id="@+id/LanguageLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:text="@string/Language"
+                    style="@style/textViewStyle" />
+                <com.app.riststock.spichalViews.STextViewBold
+                    android:id="@+id/LanguageTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:text="English"
+                    style="@style/textViewStyle" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

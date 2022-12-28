@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimaryDark">#241E65</color>
+    <color name="colorAccent">#3D3D3D</color>
+
+    <color name="header1">@color/black</color>
+    <color name="header2">@color/black3</color>
+    <color name="header3">@color/gray13</color>
+    <color name="header4">@color/gray4</color>
+    <color name="header5">@color/gray10</color>
+    <color name="header6">@color/gray6</color>
+    <color name="header7">@color/gray7</color>
+    <color name="divider">@color/gray7</color>
+    <color name="background">@color/gray</color>
+    <color name="background2">@color/gray5</color>
+    <color name="bottomNavInactive">#626262</color>
+
+
+    <color name="colorPrimaryLight">#FEFBE6</color>
+    <color name="colorPrimary">#241E65</color>
+
+    <color name="toolbar_icons">@color/header2</color>
+    <color name="nav_icons">@color/colorAccent</color>
+    <color name="button_text">@color/colorAccent</color>
+    <color name="title_text">@color/header2</color>
+    <color name="title2_text">@color/header3</color>
+    <color name="desc_text">@color/header4</color>
+    <color name="text_view_icon">@color/header5</color>
+    <color name="edit_text_icon">@color/colorAccent</color>
+    <color name="book_table_icons">@color/header3</color>
+    <color name="book_table_label">@color/header3</color>
+    <color name="reservation_icons">@color/header3</color>
+    <color name="reservation_label">@color/header3</color>
+    <!--<color name="button_text">#ffffff</color>-->
+
+    <color name="white2">#f2f2f2</color>
+    <color name="back_ground_color">#f1f1f1</color>
+    <color name="trans_white">#77ffffff</color>
+    <color name="trans_white2">#d6ffffff</color>
+    <color name="trans_white3">#f3ffffff</color>
+    <color name="transparent">#00FFFFFF</color>
+
+    <color name="page1">#fefcec</color>
+
+    <color name="black2">#2f2934</color>
+    <color name="black3">#1C1C1C</color>
+    <color name="black4">#404040</color>
+    <color name="black5">#373737</color>
+    <color name="black_trans">#d6000000</color>
+    <color name="black_trans2">#7e000000</color>
+    <color name="black_trans3">#51000000</color>
+    <color name="black_trans4">#0A000000</color>
+    <color name="black_trans5">#99000000</color>
+    <color name="black_trans6">#717171</color>
+
+    <color name="gray">#F9FAFE</color>
+    <color name="gray1">#e1e1e1</color>
+    <color name="gray2">#F9FAFE</color>
+    <color name="gray3">#AEB4C2</color>
+    <color name="gray4">#DCE3F2</color>
+    <color name="gray5">#EAE8FF</color>
+    <color name="gray6">#afafaf</color>
+    <color name="gray7">#FCFCFE</color>
+    <color name="gray8">#F7F7F7</color>
+    <color name="gray9">#717171</color>
+    <color name="gray10">#8f8f8f</color>
+    <color name="gray11">#fbfbfd</color>
+    <color name="gray12">#4d4d4d</color>
+    <color name="gray13">#545454</color>
+    <color name="gray14">#a8a8a8</color>
+    <color name="gray15">#f3f4f8</color>
+    <color name="gray16">#f8f8f8</color>
+    <color name="main_gray">#F5F5F5</color>
+    <color name="trans_gray">#fd666666</color>
+
+    <color name="green">#16C96F</color>
+    <color name="green2">#2e7d32</color>
+    <color name="green3">#225c25</color>
+    <color name="green4">#67C696</color>
+    <color name="green5">#1b5e20</color>
+    <color name="green6">#53c356</color>
+    <color name="green7">#279f4e</color>
+    <color name="green8">#6cbf5a</color>
+    <color name="green9">#25ae88</color>
+    <color name="green10">#ee1ea94c</color>
+    <color name="green11">#1f9e2e</color>
+    <color name="green_light1">#D8FDDC</color>
+
+
+    <color name="trans_black">#82000000</color>
+    <color name="trans_black2">#d4000000</color>
+    <color name="trans_black3">#b2000000</color>
+    <color name="blue_twe_color">#2fc1da</color>
+
+    <color name="red">#FF0000</color>
+    <color name="red2">#FFEFEF</color>
+    <color name="red3">#ff6e66</color>
+    <color name="red4">#f8463c</color>
+    <color name="red5">#b0003a</color>
+    <color name="red6">#ed1201</color>
+    <color name="red7">#F10A3A</color>
+    <color name="red_light">#FDE6E6</color>
+
+    <color name="pink">#c83f97</color>
+    <color name="pink2">#c24bbf</color>
+    <color name="pink3">#f4eff4</color>
+
+    <color name="yellow">#fdd835</color>
+    <color name="yellow2">#f8d24b</color>
+    <color name="yellow3">#ecbb6f</color>
+    <color name="yellow4">#f9e784</color>
+    <color name="yellow5">#f7cb2a</color>
+    <color name="yellow6">#cae154</color>
+    <color name="yellow7">#ffd20b</color>
+    <color name="yellow8">#FEFBE6</color>
+    <color name="yellow9">#FCDF1D</color>
+    <color name="yellow_light">#fffef6</color>
+    <color name="yellow_trans">#61F2D40C</color>
+
+    <color name="orange">#FF8000</color>
+    <color name="orange2">#ff6a19</color>
+    <color name="orange3">#f39a0c</color>
+    <color name="orange_light">#fdf4e4</color>
+
+    <color name="green_home">#2ddc59</color>
+    <color name="blue_box">#a675ce</color>
+    <color name="blue2">#908DB1</color>
+    <color name="blue3">#38474f</color>
+    <color name="blue4">#2f2934</color>
+    <color name="blue5">#29242d</color>
+    <color name="blue6">#503268</color>
+    <color name="blue7">#385c96</color>
+    <color name="blue8">#3cc0f1</color>
+    <color name="blue9">#596ef9</color>
+    <color name="blue10">#5888d0</color>
+    <color name="blue11">#1db1fc</color>
+    <color name="blue12">#3f5b9a</color>
+    <color name="blue13">#CDF1FF</color>
+    <color name="blue_light">#CFF2FF</color>
+
+    <color name="menu_fragment_background">#B3000000</color>
+    <color name="menu_item_background">#f2f2f2</color>
+    <color name="divider_color">#b5b5b5</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/gray1</color>
+
+</resources>

@@ -1,0 +1,38 @@
+<resources>
+
+    <string name="L_1x1_BallPulseIndicator" translatable="false">BallPulseIndicator</string>
+    <string name="L_1x2_BallGridPulseIndicator" translatable="false">BallGridPulseIndicator</string>
+    <string name="L_1x3_BallClipRotateIndicator" translatable="false">BallClipRotateIndicator</string>
+    <string name="L_1x4_BallClipRotatePulseIndicator" translatable="false">BallClipRotatePulseIndicator</string>
+
+    <string name="L_2x1_SquareSpinIndicator" translatable="false">SquareSpinIndicator</string>
+    <string name="L_2x2_BallClipRotateMultipleIndicator" translatable="false">BallClipRotateMultipleIndicator</string>
+    <string name="L_2x3_BallPulseRiseIndicator" translatable="false">BallPulseRiseIndicator</string>
+    <string name="L_2x4_BallRotateIndicator" translatable="false">BallRotateIndicator</string>
+
+    <string name="L_3x1_CubeTransitionIndicator" translatable="false">CubeTransitionIndicator</string>
+    <string name="L_3x2_BallZigZagIndicator" translatable="false">BallZigZagIndicator</string>
+    <string name="L_3x3_BallZigZagDeflectIndicator" translatable="false">BallZigZagDeflectIndicator</string>
+    <string name="L_3x4_BallTrianglePathIndicator" translatable="false">BallTrianglePathIndicator</string>
+
+    <string name="L_4x1_BallScaleIndicator" translatable="false">BallScaleIndicator</string>
+    <string name="L_4x2_LineScaleIndicator" translatable="false">LineScaleIndicator</string>
+    <string name="L_4x3_LineScalePartyIndicator" translatable="false">LineScalePartyIndicator</string>
+    <string name="L_4x4_BallScaleMultipleIndicator" translatable="false">BallScaleMultipleIndicator</string>
+
+    <string name="L_5x1_BallPulseSyncIndicator" translatable="false">BallPulseSyncIndicator</string>
+    <string name="L_5x2_BallBeatIndicator" translatable="false">BallBeatIndicator</string>
+    <string name="L_5x3_LineScalePulseOutIndicator" translatable="false">LineScalePulseOutIndicator</string>
+    <string name="L_5x4_LineScalePulseOutRapidIndicator" translatable="false">LineScalePulseOutRapidIndicator</string>
+
+    <string name="L_6x1_BallScaleRippleIndicator" translatable="false">BallScaleRippleIndicator</string>
+    <string name="L_6x2_BallScaleRippleMultipleIndicator" translatable="false">BallScaleRippleMultipleIndicator</string>
+    <string name="L_6x3_BallSpinFadeLoaderIndicator" translatable="false">BallSpinFadeLoaderIndicator</string>
+    <string name="L_6x4_LineSpinFadeLoaderIndicator" translatable="false">LineSpinFadeLoaderIndicator</string>
+
+    <string name="L_7x1_TriangleSkewSpinIndicator" translatable="false">TriangleSkewSpinIndicator</string>
+    <string name="L_7x2_PacmanIndicator" translatable="false">PacmanIndicator</string>
+    <string name="L_7x3_BallGridBeatIndicator" translatable="false">BallGridBeatIndicator</string>
+    <string name="L_7x4_SemiCircleSpinIndicator" translatable="false">SemiCircleSpinIndicator</string>
+
+</resources>

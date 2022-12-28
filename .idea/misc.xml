@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_accent_fill.xml" value="0.25833333333333336" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_bottom_primary_fill.xml" value="0.24270833333333333" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_blue_stroke_primary.xml" value="0.2390625" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_gray_stroke_blue.xml" value="0.4" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_gray_stroke_gray.xml" value="0.2390625" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_gray_stroke_light_gray.xml" value="0.25833333333333336" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_gray_stroke_primary.xml" value="0.25833333333333336" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_white_ligth_stroke_gray.xml" value="0.201" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_white_strok_gray.xml" value="0.24444444444444444" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_white_stroke_gray.xml" value="0.2390625" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_fill_white_stroke_white.xml" value="0.2390625" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_green_fill.xml" value="0.24270833333333333" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_primary_fill.xml" value="0.25833333333333336" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_white_fill.xml" value="0.24270833333333333" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_white_strock_gray.xml" value="0.25833333333333336" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/drawable/round_corner_white_stroke_gray.xml" value="0.2390625" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_change_url.xml" value="0.2" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_details.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_full_scanner.xml" value="0.2421875" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_setting.xml" value="0.2421875" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_statistics.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/activity_user_details.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/dialog_change_langauge.xml" value="0.2421875" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/dialog_country_code.xml" value="0.20833333333333334" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/dialog_my_confirm.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/dialog_my_error.xml" value="0.20833333333333334" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/dialog_my_info.xml" value="0.20833333333333334" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/dialog_my_loading.xml" value="0.20833333333333334" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/dialog_pick_image.xml" value="0.20833333333333334" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/layout_fail_get_data.xml" value="0.2421875" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/layout_no_data.xml" value="0.2421875" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/layout_pre_loading.xml" value="0.2421875" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/logo_tool_bar.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/row_statics_item.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/row_transaction_item.xml" value="0.264" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/show_image_dialog.xml" value="0.23846153846153847" />
+        <entry key="..\:/Andriod/Projects/RistStock/app/src/main/res/layout/tool_bar.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

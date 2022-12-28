@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="ripple_duration">150</integer>
+    <integer name="transition_duration">300</integer>
+    <integer name="anim_duration_medium">400</integer>
+
+    <integer name="expand_collapse_time">500</integer>
+</resources>
