@@ -24,28 +24,28 @@ object MapHandler {
         return data
     }
 
-    fun getGpsAddress(c: Context, latitude: Double?, longitude: Double?): String {
-        return try {
-            val addresses: List<Address>
-            val geocoder = Geocoder(c, Locale(UtilityApp.language))
-            addresses = geocoder.getFromLocation(
-                latitude!!,
-                longitude!!,
-                1
-            ) // Here 1 represent max location result to returned, by documents it recommended 1 to 5
-            val address: String
-            //            if (addresses.get(0) != null)
-            address =
-                addresses[0].getAddressLine(0) // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-            //            else
-            //                address = c.getResources().getString(R.string.no_address);
-            address
-        } catch (e: Exception) {
-            e.printStackTrace()
-            c.resources.getString(R.string.no_address)
-        }
-        //        return c.getResources().getString(R.string.no_address);
-    }
+//    fun getGpsAddress(c: Context, latitude: Double?, longitude: Double?): String {
+//        return try {
+//            val addresses: List<Address>
+//            val geocoder = Geocoder(c, Locale(UtilityApp.language))
+//            addresses = geocoder.getFromLocation(
+//                latitude!!,
+//                longitude!!,
+//                1
+//            ) // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+//            val address: String
+//            //            if (addresses.get(0) != null)
+//            address =
+//                addresses[0].getAddressLine(0) // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+//            //            else
+//            //                address = c.getResources().getString(R.string.no_address);
+//            address
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//            c.resources.getString(R.string.no_address)
+//        }
+//        //        return c.getResources().getString(R.string.no_address);
+//    }
 
     fun GetMapImage(size: String, latitude: Double, longitude: Double): String {
 //        markers=icon:https://mytable.sa/static/media/pin_32.png|" + latitude + "," + longitude
