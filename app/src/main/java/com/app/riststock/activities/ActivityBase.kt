@@ -105,7 +105,8 @@ open class ActivityBase : LocalizationActivity() {
 //            home?.visibility = gone
 //        }
 
-        home?.setOnClickListener { onBackPressed() }
+        home?.setOnClickListener {            onBackPressedDispatcher.onBackPressed() // Proper handling for back press
+        }
 
         super.setTitle(title)
     }

@@ -102,6 +102,37 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/baseline_keyboard_hide_24" />
+
+                <com.app.riststock.spichalViews.STextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/keyboard_visibility"
+                    android:textColor="@color/header2"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/keyboardSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" /> <!-- Default off -->
+
+            </LinearLayout>
+
             </LinearLayout>
 
 

@@ -24,7 +24,11 @@ class ChangeUrlActivity : ActivityBase() {
 
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
+        super.onBackPressed()
+        onBackPressedDispatcher.onBackPressed() // Proper handling for back press
+
 
     }
 

@@ -22,7 +22,7 @@ class SettingActivity : ActivityBase() {
         setContentView(view)
         initListeners()
         initButtons()
-
+       binding.keyboardSwitch.isChecked = UtilityApp.isKeyVisible
     }
 
     private fun initButtons() {
@@ -42,6 +42,10 @@ class SettingActivity : ActivityBase() {
     private fun initListeners() {
 
 
+        binding.keyboardSwitch.setOnCheckedChangeListener { _, isChecked ->
+            UtilityApp.setKeyVisible(isChecked)
+//            toggleKeyboardVisibility(isChecked)
+        }
         binding.staticBut.setOnClickListener {
             val intent = Intent(activiy, StatisticsActivity::class.java)
             startActivity(intent)
@@ -67,7 +71,8 @@ class SettingActivity : ActivityBase() {
 
 
         binding.toolBar.mainBackBtn.setOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed() // Proper handling for back press
+
         }
 
 

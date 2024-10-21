@@ -29,7 +29,8 @@ class UserDetailsActivity : ActivityBase() {
 
     private fun initListeners() {
         binding.toolbar.mainBackBtn.setOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed() // Proper handling for back press
+
         }
 
     }

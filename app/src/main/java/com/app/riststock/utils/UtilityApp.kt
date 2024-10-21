@@ -3,7 +3,6 @@ package com.app.riststock.utils
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.provider.Settings
-import com.app.riststock.RootApplication
 import com.app.riststock.RootApplication.Companion.instance
 import com.app.riststock.classes.Constants
 import com.app.riststock.models.MemberModel
@@ -76,6 +75,16 @@ object UtilityApp {
 
     fun setIsRateApp(isRateApp: Boolean) {
         instance?.sharedPManger?.setData(Constants.KEY_IS_RATE_APP, isRateApp)
+    }
+
+
+    val isKeyVisible: Boolean
+        get() {
+            return instance?.sharedPManger?.getDataBool(Constants.KEY_IS_KEYBOARD_VISIBLE, true) == true
+        }
+
+    fun setKeyVisible(isVisible: Boolean) {
+        instance?.sharedPManger?.setData(Constants.KEY_IS_KEYBOARD_VISIBLE, isVisible)
     }
 
     val isLogin: Boolean

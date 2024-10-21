@@ -62,10 +62,13 @@
         android:hint="@string/url"
         android:inputType="text"
         android:padding="@dimen/_10sdp"
-        android:text="https://risteh.com/StockTake/BH1/"
+        android:text="@string/https_risteh_com_stocktake_bh1"
         android:paddingTop="@dimen/_16sdp"
         android:paddingBottom="@dimen/_16sdp"
         android:textStyle="bold" />
+<!--    android:text="http://ksa001.dynns.com/StockTake/BH1/"-->
+
+
     <com.app.riststock.spichalViews.SButton
         android:id="@+id/changeUrlBut"
         android:layout_width="match_parent"

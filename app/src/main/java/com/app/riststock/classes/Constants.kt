@@ -136,7 +136,7 @@ object Constants {
     const val KEY_COURSE_MODEL = "key_course_model"
     const val KEY_CATEGORY_NAME = "key_category_name"
     const val KEY_IS_RATE_APP = "key_is_rate_app"
-    const val KEY_IMAGES_LIST = "key_IMAGES_LIST"
+    const val KEY_IS_KEYBOARD_VISIBLE = "KEY_IS_KEYBOARD_VISIBLE"
     const val KEY_IMAGES_POS = "key_images_pos"
     const val KEY_IMAGE_URL = "key_image_url"
     const val KEY_IS_FAST_LOGIN = "key_is_fast_login"

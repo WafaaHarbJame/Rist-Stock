@@ -40,6 +40,9 @@ class LoginActivity : ActivityBase() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
+        onBackPressedDispatcher.onBackPressed() // Proper handling for back press
+
 
     }
 
@@ -91,6 +94,7 @@ class LoginActivity : ActivityBase() {
         loginMemberModel.areaId = areaIdStr.toInt()
         loginMemberModel.userId = userIdStr.toInt()
         loginMemberModel.password = passwordStr
+        Log.d(javaClass.simpleName, "Log Url Login : "+url.plus("Account") )
 
         GlobalData.progressDialog(activiy, R.string.login, R.string.please_wait_login)
         AndroidNetworking.get(url.plus("Account"))
@@ -103,7 +107,9 @@ class LoginActivity : ActivityBase() {
                 LoginResultModel::class.java,
                 object : ParsedRequestListener<LoginResultModel> {
                     override fun onResponse(result: LoginResultModel) {
+
                         GlobalData.hideProgressDialog()
+                        Log.d(javaClass.simpleName, "Log login status : " +result.status)
 
                         if (result.status == 200) {
                             val user = result.data

@@ -5,15 +5,20 @@ buildscript {
 
     repositories {
         google()
+        maven { url 'https://jitpack.io' }
+        maven { url "https://www.jitpack.io" }
         mavenCentral()
 
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
+//        classpath 'com.android.tools.build:gradle:7.2.2'
+//        classpath 'com.android.tools.build:gradle:8.0.2' // Use the latest version
+        classpath 'com.android.tools.build:gradle:8.5.2'
+
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
-        classpath 'com.google.gms:google-services:4.3.15'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.1'
+        classpath 'com.google.gms:google-services:4.4.2'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:3.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // <= 1.5.20 used here
 
     }
@@ -24,10 +29,23 @@ buildscript {
 
 allprojects {
     repositories {
+
         // Check that you have Google's Maven repository (if not, add it).
+//        google()
+//        maven { url 'https://jitpack.io' }
+//        mavenCentral()
+        maven { url 'https://jitpack.io' }
         google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven {url "https://maven.google.com"}
+        maven {url "https://jcenter.bintray.com/"}
+        maven {
+            url "https://www.jitpack.io"
+            credentials { username authToken }
+        }
     }
 }
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }

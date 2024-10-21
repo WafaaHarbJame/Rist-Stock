@@ -2,15 +2,19 @@ package com.app.riststock
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView.OnEditorActionListener
 import androidx.activity.result.ActivityResult
@@ -66,6 +70,8 @@ class MainActivity : ActivityBase() {
         groupId = user?.userGroupId ?: 0
         langID = user?.langId ?: "ar"
 
+        Log.d(javaClass.simpleName, "Log groupId $groupId")
+
         if (UtilityApp.isFirstRun) {
             val intent = Intent(activiy, ChangeUrlActivity::class.java)
             startActivity(intent)
@@ -87,6 +93,7 @@ class MainActivity : ActivityBase() {
             if (result?.resultCode == Activity.RESULT_OK) {
                 val bundle = result.data?.extras
                 barcodeText = bundle?.getString(Constants.code).toString()
+                hideSoftKeyboard(activiy)
                 getProductData(userId, barcodeText, langID)
 
             }
@@ -101,8 +108,21 @@ class MainActivity : ActivityBase() {
     private fun showDetails() {
         if (groupId == 1) {
             binding.showDetailsBut.visibility = View.GONE
+            binding.showDetailsBut.isEnabled = false
+
+            binding.showDetailsBut.background =
+                ContextCompat.getDrawable(
+                    activiy,
+                    R.drawable.round_corner_light_blue_fill
+                )
         } else {
             binding.showDetailsBut.visibility = View.VISIBLE
+            binding.showDetailsBut.isEnabled = true
+            binding.showDetailsBut.background =
+                ContextCompat.getDrawable(
+                    activiy,
+                    R.drawable.round_corner_fill_blue_stroke_primary
+                )
 
         }
     }
@@ -135,6 +155,9 @@ class MainActivity : ActivityBase() {
     }
 
     fun initButtons() {
+        Log.d(javaClass.simpleName, "Log validationCount $validationCount")
+        Log.d(javaClass.simpleName, "Log VALIDATION_ITEMS $VALIDATION_ITEMS")
+
         when (validationCount) {
             1 -> {
                 binding.clearBut.background =
@@ -153,20 +176,24 @@ class MainActivity : ActivityBase() {
 
 
             }
+
             VALIDATION_ITEMS -> {
                 binding.addBut.background =
                     ContextCompat.getDrawable(
                         activiy,
                         R.drawable.round_corner_green_fill
                     )
-                binding.showDetailsBut.background =
-                    ContextCompat.getDrawable(
-                        activiy,
-                        R.drawable.round_corner_fill_blue_stroke_primary
-                    )
+//                binding.showDetailsBut.background =
+//                    ContextCompat.getDrawable(
+//                        activiy,
+//                        R.drawable.round_corner_fill_blue_stroke_primary
+//                    )
+//
+//                binding.showDetailsBut.isEnabled = true
+
                 binding.addBut.isEnabled = true
-                binding.showDetailsBut.isEnabled = true
             }
+
             0 -> {
                 binding.clearBut.background =
                     ContextCompat.getDrawable(
@@ -180,16 +207,16 @@ class MainActivity : ActivityBase() {
                     )
                 binding.clearBut.setTextColor(ContextCompat.getColor(activiy, R.color.gray10))
 
-                binding.showDetailsBut.background =
-                    ContextCompat.getDrawable(
-                        activiy,
-                        R.drawable.round_corner_light_blue_fill
-                    )
-
+//                binding.showDetailsBut.background =
+//                    ContextCompat.getDrawable(
+//                        activiy,
+//                        R.drawable.round_corner_light_blue_fill
+//                    )
+//                binding.showDetailsBut.isEnabled = false
 
                 binding.clearBut.isEnabled = false
                 binding.addBut.isEnabled = false
-                binding.showDetailsBut.isEnabled = false
+
             }
         }
 
@@ -259,6 +286,7 @@ class MainActivity : ActivityBase() {
             barcodeText = binding.barcodeTv.text.toString()
             if (actionId == EditorInfo.IME_ACTION_DONE && barcodeText != null) {
                 if (!binding.barcodeTv.text.isNullOrEmpty()) {
+                    hideSoftKeyboard(activiy)
                     getProductData(userId, barcodeText, langID)
                 } else {
                     Toast(getString(R.string.enter_barcode))
@@ -272,6 +300,7 @@ class MainActivity : ActivityBase() {
 
         binding.showDetailsBut.setOnClickListener {
             if (!binding.barcodeTv.text.isNullOrEmpty()) {
+                hideSoftKeyboard(activiy)
                 val intent = Intent(activiy, ProductsDetailsActivity::class.java)
                 intent.putExtra(Constants.barcode, barcodeText)
 //            intent.putExtra(Constants.barcode, "9556456990682")
@@ -357,7 +386,26 @@ class MainActivity : ActivityBase() {
                         if (productsModel?.status == 200) {
                             binding.addQuantityTv.requestFocus()
 
-                            showSoftKeyboard(binding.addQuantityTv, activiy)
+                            Log.d(
+                                javaClass.simpleName,
+                                "Log UtilityApp.isKeyVisible ${UtilityApp.isKeyVisible}"
+                            )
+
+                            if (UtilityApp.isKeyVisible) {
+                                showSoftKeyboard(binding.addQuantityTv, activiy)
+                            } else {
+                                Handler(Looper.getMainLooper()).postDelayed({
+                                    val imm =
+                                        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                                    imm.hideSoftInputFromWindow(
+                                        binding.addQuantityTv.windowToken,
+                                        0
+                                    )
+                                }, 100) // Adjust delay time if needed
+
+                            }
+
+
                             itemCode = productsModel.data?.itemCode
 
                             initData(productsModel.data)

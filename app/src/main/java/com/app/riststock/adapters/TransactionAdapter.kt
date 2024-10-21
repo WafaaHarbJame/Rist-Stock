@@ -93,23 +93,27 @@ class TransactionAdapter(
 
             binding.addQuantityBut.setOnClickListener {
                 var quantity=0
-                var position=adapterPosition
+                val position=adapterPosition
                 val transaction = list?.get(adapterPosition)
                 if(binding.newQuantityTv.text.toString().isEmpty()){
                     Toast.makeText(activity, activity.getString(R.string.invalid_input), Toast.LENGTH_SHORT).show()
                 }
                 else{
-                    quantity= binding.newQuantityTv.text.toString().toInt()
+                    val quantity = try {
+                        binding.newQuantityTv.text.toString().toDouble().toInt() // This will handle both integers and decimal values
+                    } catch (e: NumberFormatException) {
+                        0 // Default value if the input is not a valid number
+                    }
 
-                    if(quantity>0){
+                    if(quantity>=0){
                         addProduct(transaction,quantity,position)
                     }
-                    else{
-                        binding.newQuantityTv.requestFocus()
-                        binding.newQuantityTv.error = activity.getString(R.string.invalid_input)
-                        Toast.makeText(activity, activity.getString(R.string.invalid_input), Toast.LENGTH_SHORT).show()
-
-                    }
+//                    else{
+//                        binding.newQuantityTv.requestFocus()
+//                        binding.newQuantityTv.error = activity.getString(R.string.invalid_input)
+//                        Toast.makeText(activity, activity.getString(R.string.invalid_input), Toast.LENGTH_SHORT).show()
+//
+//                    }
 
 
                 }
@@ -134,6 +138,8 @@ class TransactionAdapter(
                 ParsedRequestListener<PublicModel> {
                 override fun onResponse(result: PublicModel) {
                     GlobalData.hideProgressDialog()
+                    Log.d(javaClass.simpleName, "Log addProduct ${result.status}")
+                    Log.d(javaClass.simpleName, "Log addProduct ${result.message}")
 
                     if(result.status==200){
                         Toast.makeText(activity, activity.getString(R.string.added_sucess), Toast.LENGTH_SHORT).show()

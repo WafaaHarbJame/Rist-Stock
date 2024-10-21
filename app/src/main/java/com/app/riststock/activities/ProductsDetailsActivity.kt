@@ -59,7 +59,8 @@ class ProductsDetailsActivity : ActivityBase() {
 
     private fun initListeners() {
         binding.toolBar.mainBackBtn.setOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
+
         }
 
         binding.referenceTv.setOnClickListener {

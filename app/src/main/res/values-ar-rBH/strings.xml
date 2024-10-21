@@ -93,5 +93,6 @@
     <string name="arabic">عربي </string>
     <string name="language">اللغة</string>
     <string name="setting">الاعدادات</string>
+    <string name="keyboard_visibility">اظهار لوحة المفاتيح</string>
 
 </resources>
