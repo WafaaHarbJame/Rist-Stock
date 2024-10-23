@@ -16,12 +16,14 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView.OnEditorActionListener
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -38,10 +40,19 @@ import com.github.dhaval2404.form_validation.rule.NonEmptyRule
 import com.github.dhaval2404.form_validation.validation.FormValidator
 import com.kcode.permissionslib.main.OnRequestPermissionsCallBack
 import com.kcode.permissionslib.main.PermissionCompat
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class MainActivity : ActivityBase() {
     lateinit var binding: ActivityMainBinding
+    private var debounceJob: Job? = null
+    private var isApiCallInProgress = false
+    private var lastBarcode: String? = null
+
     var confirmDialog: MyConfirmDialog? = null
     private val ZBAR_CAMERA_PERMISSION = 1
     private var scanLauncher: ActivityResultLauncher<Intent>? = null
@@ -54,7 +65,6 @@ class MainActivity : ActivityBase() {
     private var langID: String = ""
     private var url: String = ""
     private var itemCode: String? = null
-
     private var validationCount = 0
     private val VALIDATION_ITEMS = 2
 
@@ -94,7 +104,7 @@ class MainActivity : ActivityBase() {
                 val bundle = result.data?.extras
                 barcodeText = bundle?.getString(Constants.code).toString()
                 hideSoftKeyboard(activiy)
-                getProductData(userId, barcodeText, langID)
+                getProductData(userId, barcodeText, langID,false)
 
             }
 
@@ -128,6 +138,26 @@ class MainActivity : ActivityBase() {
     }
 
     private fun initTextListener() {
+
+
+
+//        binding.addQuantityTv.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
+//            barcodeText = binding.barcodeTv.text.toString()
+//            if (actionId == EditorInfo.IME_ACTION_DONE && barcodeText.toString().isNotEmpty()) {
+//                if (!binding.barcodeTv.text.isNullOrEmpty()) {
+//                    hideSoftKeyboard(activiy)
+//                    getProductData(userId, barcodeText, langID,false)
+//                } else {
+//                    Toast(getString(R.string.enter_barcode))
+//                    binding.barcodeTv.error = getString(R.string.enter_barcode)
+//                }
+//
+//                return@OnEditorActionListener true
+//            }
+//            false
+//        })
+
+
 
         val textListener = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -273,7 +303,7 @@ class MainActivity : ActivityBase() {
                     okClick,
                     null
                 )
-                confirmDialog!!.setOnDismissListener {
+                confirmDialog?.setOnDismissListener {
                     confirmDialog = null
                 }
             }
@@ -281,13 +311,34 @@ class MainActivity : ActivityBase() {
         }
 
 
+//        binding.barcodeTv.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//                debounceJob?.cancel()
+//                debounceJob = lifecycleScope.launch {
+//                    delay(500) // Debounce for 500ms
+//                    barcodeText = s.toString()
+//                    if (barcodeText?.isNotEmpty() == true) {
+//                        hideSoftKeyboard(this@MainActivity)
+//                        getProductData(userId, barcodeText, langID,true)
+//                    } else {
+//                        Toast(getString(R.string.enter_barcode))
+//                        binding.barcodeTv.error = getString(R.string.enter_barcode)
+//                    }
+//                }
+//            }
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//        })
+
 
         binding.barcodeTv.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
+
             barcodeText = binding.barcodeTv.text.toString()
-            if (actionId == EditorInfo.IME_ACTION_DONE && barcodeText != null) {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH && barcodeText.toString().isNotEmpty()) {
                 if (!binding.barcodeTv.text.isNullOrEmpty()) {
                     hideSoftKeyboard(activiy)
-                    getProductData(userId, barcodeText, langID)
+                    getProductData(userId, barcodeText, langID,false)
                 } else {
                     Toast(getString(R.string.enter_barcode))
                     binding.barcodeTv.error = getString(R.string.enter_barcode)
@@ -297,6 +348,128 @@ class MainActivity : ActivityBase() {
             }
             false
         })
+
+
+        binding.addQuantityTv.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
+            quantity = binding.addQuantityTv.text.toString().toInt()
+            if (actionId == EditorInfo.IME_ACTION_DONE && quantity!=0) {
+                if (!binding.addQuantityTv.text.isNullOrEmpty()) {
+                    hideSoftKeyboard(activiy)
+                    addProductAsUser(quantity)
+                } else {
+                    Toast(getString(R.string.enter_quantity))
+                    binding.addQuantityTv.error = getString(R.string.enter_quantity)
+                }
+
+                return@OnEditorActionListener true
+            }
+            false
+        })
+
+
+//        binding.addQuantityTv.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//                debounceJob?.cancel()
+//                debounceJob = lifecycleScope.launch {
+//                    delay(500) // Debounce for 500ms
+//                    quantity = s.toString().toInt()
+//                    if (s.toString().isNotEmpty()) {
+//                        hideSoftKeyboard(this@MainActivity)
+//                        addProductAsUser(quantity)
+//
+//                    } else {
+//                        Toast(getString(R.string.enter_quantity))
+//                        binding.addQuantityTv.error = getString(R.string.enter_quantity)
+//                    }
+//                }
+//            }
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//        })
+
+
+        var barcodeDebounceJob: Job? = null
+
+//        binding.barcodeTv.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//
+//                val barcodeTextValue = s.toString()
+//                barcodeText=barcodeTextValue
+//                Log.i("tag", "Scanned Barcode: $barcodeText")
+//
+//                // Cancel any previously pending job to avoid multiple calls
+//                barcodeDebounceJob?.cancel()
+//
+//                // Only trigger the product lookup if the barcode is not empty
+//                barcodeDebounceJob = CoroutineScope(Dispatchers.Main).launch {
+//                    delay(500)  // Add a short delay to debounce multiple events (if needed)
+//                    if (barcodeText?.isNotEmpty() == true) {
+//                        hideSoftKeyboard(activiy)  // Hide keyboard if open
+//                        getProductData(userId, barcodeText, langID)
+//                    }
+//                    else {
+//                        Toast(getString(R.string.enter_barcode))
+//                        binding.barcodeTv.error = getString(R.string.enter_barcode)
+//                    }
+//                }
+//            }
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//        })
+
+
+//        binding.barcodeTv.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//                val barcodeText = s.toString()
+//                Log.i("tag", "Scanned Barcode: $barcodeText")
+//
+//                // Cancel any previously pending job to avoid multiple calls
+//                barcodeDebounceJob?.cancel()
+//
+//                // Only trigger the product lookup if the barcode is not empty
+//                barcodeDebounceJob = CoroutineScope(Dispatchers.Main).launch {
+//                    delay(500)  // Add a short delay to debounce multiple events (if needed)
+//                    if (barcodeText.isNotEmpty()) {
+//                        hideSoftKeyboard(activiy)  // Hide keyboard if open
+//                        // Pass the current barcodeText as an argument to avoid race conditions
+//                        getProductData(userId, barcodeText, langID)
+//                    }
+//
+////                    else {
+////                        Toast(getString(R.string.enter_barcode))
+////                        binding.barcodeTv.error = getString(R.string.enter_barcode)
+////                    }
+//                }
+//            }
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//        })
+
+
+//        binding.barcodeTv.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//                val barcodeText = s.toString()
+//                Log.i("tag", "Barcode: $barcodeText")
+//
+//                // Automatically fetch product data when the barcode is not empty
+//                if (barcodeText.isNotEmpty()) {
+//                    hideSoftKeyboard(activiy)
+//                    getProductData(userId, barcodeText, langID)
+//                } else {
+//                    Toast(getString(R.string.enter_barcode))
+//                    binding.barcodeTv.error = getString(R.string.enter_barcode)
+//                }
+//            }
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//        })
+
 
         binding.showDetailsBut.setOnClickListener {
             if (!binding.barcodeTv.text.isNullOrEmpty()) {
@@ -369,7 +542,11 @@ class MainActivity : ActivityBase() {
         initButtons()
     }
 
-    private fun getProductData(userId: Int, barcode: String?, lang_id: String?) {
+    private fun getProductData(userId: Int, barcode: String?, lang_id: String?,fromScan:Boolean) {
+        if (fromScan) {
+            if (lastBarcode == barcode) return // Prevent duplicate calls
+            lastBarcode = barcode // Update the last scanned barcode
+        }
         GlobalData.progressDialog(activiy, R.string.scanning, R.string.getData)
         AndroidNetworking.get(url.plus("Products"))
             .addQueryParameter("user_id", userId.toString())
@@ -381,6 +558,7 @@ class MainActivity : ActivityBase() {
                 ProductResultsModel::class.java,
                 object : ParsedRequestListener<ProductResultsModel> {
                     override fun onResponse(productsModel: ProductResultsModel?) {
+
                         GlobalData.hideProgressDialog()
 
                         if (productsModel?.status == 200) {
@@ -408,7 +586,7 @@ class MainActivity : ActivityBase() {
 
                             itemCode = productsModel.data?.itemCode
 
-                            initData(productsModel.data)
+                            initData(productsModel.data, barcode)
 
                             binding.quantityLy.background =
                                 ContextCompat.getDrawable(
@@ -441,16 +619,14 @@ class MainActivity : ActivityBase() {
                         val message = getString(R.string.fail_to_get_data)
                         GlobalData.hideProgressDialog()
                         GlobalData.errorDialog(activiy, R.string.getData, message)
-
                         Log.d(javaClass.simpleName, "Log Error Login ${anError.errorCode}")
                         Log.d(javaClass.simpleName, "Log Error Login ${anError.errorDetail}")
                     }
                 })
     }
 
-    private fun initData(productsModel: ProductsModel?) {
-        binding.barcodeTv.setText(barcodeText)
-
+    private fun initData(productsModel: ProductsModel?, barcodeTex: String?) {
+        binding.barcodeTv.setText(barcodeTex)
         binding.codeTv.text = productsModel?.itemCode
         binding.referenceTv.text = productsModel?.itemRef
         binding.descriptionTv.text = productsModel?.description

@@ -93,7 +93,7 @@
     <string name="language">Language</string>
     <string name="setting">Setting</string>
     <string name="https_risteh_com_stocktake_bh1" translatable="false">http://risteh.com/StockTake/BH1/</string>
-<!--    <string name="https_risteh_com_stocktake_bh2" translatable="false">http://ksa001.dynns.com/StockTake/BH1/</string>-->
+<!--    <string name="https_risteh_com_stocktake_bh1" translatable="false">http://ksa001.dynns.com/StockTake/BH1/</string>-->
     <string name="keyboard_visibility">Keyboard Visibility</string>
 
 </resources>

@@ -98,8 +98,8 @@
                         android:layout_gravity="center"
                         android:background="@null"
                         android:gravity="center_vertical"
-                        android:imeOptions="actionDone"
                         android:inputType="number"
+                        android:imeOptions="actionSearch"
                         android:text="" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -347,9 +347,10 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:background="@null"
+                        android:imeOptions="actionDone"
                         android:gravity="center_vertical"
                         android:inputType="number"
-                        android:text="0" />
+                        android:text="" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
