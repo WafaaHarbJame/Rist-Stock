@@ -98,7 +98,7 @@
                         android:layout_gravity="center"
                         android:background="@null"
                         android:gravity="center_vertical"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:imeOptions="actionSearch"
                         android:text="" />
                 </androidx.appcompat.widget.LinearLayoutCompat>

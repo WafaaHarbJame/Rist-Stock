@@ -67,7 +67,7 @@ class TransactionAdapter(
             val dateStr= DateHandler.GetTimeFromDateString(DateHandler.convertToLong(transaction?.createdAt, "yyyy-MM-dd HH:mm"))
             holder.binding.timeTv.text = dateStr
             holder.binding.oldQuantityTv.text = transaction?.userQty.toString()
-            val adminQau=transaction?.adminQty2?:0
+            val adminQau=transaction?.adminQty2?:""
             holder.binding.newQuantityTv.setText(adminQau.toString())
 
 

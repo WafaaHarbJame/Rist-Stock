@@ -200,7 +200,7 @@ class ProductsDetailsActivity : ActivityBase() {
                         binding.loadingLY.loadingProgressLY.visibility = View.GONE
                         binding.dataLy.visibility = View.VISIBLE
                         if (result?.status == 200) {
-                            if (result.data?.size ?: 0 > 0) {
+                            if ((result.data?.size ?: 0) > 0) {
                                 binding.recycler.visibility = View.VISIBLE
                                 list = result.data as MutableList<Transaction>?
                                 initAdapter()
