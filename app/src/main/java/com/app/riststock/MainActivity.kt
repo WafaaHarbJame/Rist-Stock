@@ -544,7 +544,7 @@ class MainActivity : ActivityBase() {
     }
 
     private fun getProductData(userId: Int, barcode: String?, lang_id: String?,fromScan:Boolean) {
-            Log.d("gg","Log getProductData url"+url.plus("Products"))
+            Log.d("gg","Log getProductData url "+url.plus("Products"))
         if (fromScan) {
             if (lastBarcode == barcode) return // Prevent duplicate calls
             lastBarcode = barcode // Update the last scanned barcode
@@ -552,6 +552,7 @@ class MainActivity : ActivityBase() {
         GlobalData.progressDialog(activiy, R.string.scanning, R.string.getData)
         AndroidNetworking.get(url.plus("Products"))
             .addQueryParameter("user_id", userId.toString())
+            .addQueryParameter("area_id", areaId.toString())
             .addQueryParameter("barcode", barcode)
             .addQueryParameter("lang_id", lang_id)
             .setPriority(Priority.LOW)
@@ -560,9 +561,10 @@ class MainActivity : ActivityBase() {
                 ProductResultsModel::class.java,
                 object : ParsedRequestListener<ProductResultsModel> {
                     override fun onResponse(productsModel: ProductResultsModel?) {
+                        Log.d("gg","Log getProductData params  "+userId+areaId+barcode+lang_id)
 
                         GlobalData.hideProgressDialog()
-
+                        //62810064095696281006409569
                         if (productsModel?.status == 200) {
                             binding.addQuantityTv.requestFocus()
 

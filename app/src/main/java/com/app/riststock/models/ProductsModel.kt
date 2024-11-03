@@ -40,5 +40,5 @@ class ProductsModel {
 
     @SerializedName("quantity")
     @Expose
-   var quantity = 0
+   var quantity = 0.0
 }
