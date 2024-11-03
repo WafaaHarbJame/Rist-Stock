@@ -128,7 +128,7 @@
                     android:layout_marginBottom="@dimen/_6sdp"
                     android:background="@null"
                     android:visibility="visible"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     style="@style/textViewStyleGray"
                     android:textAlignment="viewStart"
                     android:text="" />

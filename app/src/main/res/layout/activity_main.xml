@@ -312,7 +312,7 @@
                         android:layout_gravity="center"
                         android:background="@null"
                         android:gravity="center_vertical"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:text="" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -349,7 +349,7 @@
                         android:background="@null"
                         android:imeOptions="actionDone"
                         android:gravity="center_vertical"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:text="" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>

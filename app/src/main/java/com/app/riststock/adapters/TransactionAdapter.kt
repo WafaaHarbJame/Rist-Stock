@@ -100,12 +100,12 @@ class TransactionAdapter(
                 }
                 else{
                     val quantity = try {
-                        binding.newQuantityTv.text.toString().toDouble().toInt() // This will handle both integers and decimal values
+                        binding.newQuantityTv.text.toString().toDouble() // This will handle both integers and decimal values
                     } catch (e: NumberFormatException) {
-                        0 // Default value if the input is not a valid number
+                        0.0 // Default value if the input is not a valid number
                     }
 
-                    if(quantity>=0){
+                    if(quantity>=0.0){
                         addProduct(transaction,quantity,position)
                     }
 //                    else{
@@ -124,7 +124,7 @@ class TransactionAdapter(
         }
 
     }
-    fun addProduct(transaction: Transaction?, quantity:Int?,position:Int?) {
+    fun addProduct(transaction: Transaction?, quantity:Double?,position:Int?) {
         GlobalData.progressDialog(activity, R.string.addQuantity, R.string.please_wait_to_set_quanity)
         AndroidNetworking.get(url.plus("Products/SetAdminQty"))
             .addQueryParameter("admin_id", userId.toString())
@@ -143,8 +143,8 @@ class TransactionAdapter(
 
                     if(result.status==200){
                         Toast.makeText(activity, activity.getString(R.string.added_sucess), Toast.LENGTH_SHORT).show()
-                        list?.get(position!!)?.adminQty2 =quantity
-                          notifyItemChanged(position!!)
+                        list?.get(position?:0)?.adminQty2 =quantity
+                          notifyItemChanged(position?:0)
                         notifyDataSetChanged()
 
                     }

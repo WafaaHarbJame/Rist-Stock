@@ -38,6 +38,7 @@ import com.app.riststock.models.*
 import com.app.riststock.utils.UtilityApp
 import com.github.dhaval2404.form_validation.rule.NonEmptyRule
 import com.github.dhaval2404.form_validation.validation.FormValidator
+import com.google.gson.Gson
 import com.kcode.permissionslib.main.OnRequestPermissionsCallBack
 import com.kcode.permissionslib.main.PermissionCompat
 import kotlinx.coroutines.CoroutineScope
@@ -60,7 +61,7 @@ class MainActivity : ActivityBase() {
     private var user: MemberModel? = null
     private var areaId: Int = 0
     private var groupId: Int = 0
-    private var quantity: Int = 0
+    private var quantity: Double = 0.0
     private var barcodeText: String? = null
     private var langID: String = ""
     private var url: String = ""
@@ -262,7 +263,7 @@ class MainActivity : ActivityBase() {
         }
         binding.addBut.setOnClickListener {
             if (isValidForm()) {
-                quantity = binding.addQuantityTv.text.toString().toInt()
+                quantity = binding.addQuantityTv.text.toString().toDoubleOrNull()?:0.0
                 addProductAsUser(quantity)
 
             }
@@ -351,8 +352,8 @@ class MainActivity : ActivityBase() {
 
 
         binding.addQuantityTv.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
-            quantity = binding.addQuantityTv.text.toString().toInt()
-            if (actionId == EditorInfo.IME_ACTION_DONE && quantity!=0) {
+            quantity = binding.addQuantityTv.text.toString().toDoubleOrNull()?:0.0
+            if (actionId == EditorInfo.IME_ACTION_DONE && quantity!=0.0) {
                 if (!binding.addQuantityTv.text.isNullOrEmpty()) {
                     hideSoftKeyboard(activiy)
                     addProductAsUser(quantity)
@@ -543,6 +544,7 @@ class MainActivity : ActivityBase() {
     }
 
     private fun getProductData(userId: Int, barcode: String?, lang_id: String?,fromScan:Boolean) {
+            Log.d("gg","Log getProductData url"+url.plus("Products"))
         if (fromScan) {
             if (lastBarcode == barcode) return // Prevent duplicate calls
             lastBarcode = barcode // Update the last scanned barcode
@@ -585,6 +587,9 @@ class MainActivity : ActivityBase() {
 
 
                             itemCode = productsModel.data?.itemCode
+
+                            Log.d("gg","Log getProductData  productsModel.data"+Gson().toJson(productsModel.data))
+
 
                             initData(productsModel.data, barcode)
 
@@ -708,7 +713,7 @@ class MainActivity : ActivityBase() {
     }
 
 
-    private fun addProductAsUser(quantity: Int) {
+    private fun addProductAsUser(quantity: Double) {
         AndroidNetworking.get(url.plus("Products/SetQty"))
             .addQueryParameter("user_id", userId.toString())
             .addQueryParameter("area_id", areaId.toString())
