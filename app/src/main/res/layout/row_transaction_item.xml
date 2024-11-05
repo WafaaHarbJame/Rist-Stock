@@ -262,7 +262,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/_6sdp"
                 android:gravity="center_vertical"
-                android:text="9010000121965" />
+                android:text="" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </LinearLayout>

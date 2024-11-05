@@ -21,6 +21,7 @@ import com.app.riststock.models.ProductsModel
 import com.app.riststock.models.Transaction
 import com.app.riststock.models.TransactionResultsModel
 import com.app.riststock.utils.UtilityApp
+import com.google.gson.Gson
 
 class ProductsDetailsActivity : ActivityBase() {
 
@@ -185,6 +186,8 @@ class ProductsDetailsActivity : ActivityBase() {
     }
 
     private fun getTransactionData(userId: Int, areaId: Int, item_code: String, lang_id: String) {
+        Log.d("gg","Log getProductData url "+url.plus("Products/Transaction"))
+        Log.d("gg","Log getTransactionData params  "+userId+areaId+item_code+lang_id)
 
         AndroidNetworking.get(url.plus("Products/Transaction"))
             .addQueryParameter("user_id", userId.toString())
@@ -197,6 +200,8 @@ class ProductsDetailsActivity : ActivityBase() {
                 TransactionResultsModel::class.java,
                 object : ParsedRequestListener<TransactionResultsModel> {
                     override fun onResponse(result: TransactionResultsModel?) {
+                        Log.d("gg","Log getTransactionData  productsModel.data"+ Gson().toJson(result?.data))
+
                         binding.loadingLY.loadingProgressLY.visibility = View.GONE
                         binding.dataLy.visibility = View.VISIBLE
                         if (result?.status == 200) {
