@@ -41,7 +41,7 @@ class LoginActivity : ActivityBase() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        onBackPressedDispatcher.onBackPressed() // Proper handling for back press
+        onBackPressedDispatcher.onBackPressed()
 
 
     }

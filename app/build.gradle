@@ -14,8 +14,8 @@ android {
         applicationId "com.app.riststock"
         minSdk 21
         targetSdk 34
-        versionCode 13
-        versionName "3.13"
+        versionCode 17
+        versionName "3.17"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true

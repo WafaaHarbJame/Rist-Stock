@@ -293,6 +293,7 @@ class MainActivity : ActivityBase() {
                     val intent = Intent(activiy, LoginActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
+                    finish()
                 }
             }
             if (confirmDialog == null) {

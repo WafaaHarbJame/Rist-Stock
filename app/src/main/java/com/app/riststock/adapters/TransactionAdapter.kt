@@ -62,6 +62,8 @@ class TransactionAdapter(
             userId = user?.userId ?: 0
             areaId = user?.areaId ?: 0
             langID = user?.langId ?: "ar"
+
+            holder.binding.barcode2Tv.text=transaction?.barcode
             holder.binding.usernameTv.text = transaction?.userName
             holder.binding.areaTv.text = transaction?.areaId.toString()
             val dateStr= DateHandler.GetTimeFromDateString(DateHandler.convertToLong(transaction?.createdAt, "yyyy-MM-dd HH:mm"))

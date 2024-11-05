@@ -85,15 +85,15 @@
     <string name="fail_to_add_quanity" />
     <string name="please_wait_to_set_quanity" />
     <string name="enter_barcode">Enter Barcode</string>
-    <string name="enter_quantity">Enter Quanity</string>
+    <string name="enter_quantity">Enter Quantity</string>
     <string name="confirm">Confirm</string>
     <string name="select_language">Select Language</string>
     <string name="english">English</string>
     <string name="arabic">Arabic</string>
     <string name="language">Language</string>
     <string name="setting">Setting</string>
-    <string name="https_risteh_com_stocktake_bh1" translatable="false">http://risteh.com/StockTake/BH1/</string>
-<!--    <string name="https_risteh_com_stocktake_bh1" translatable="false">http://ksa001.dynns.com/StockTake/BH1/</string>-->
+<!--    <string name="https_risteh_com_stocktake_bh1" translatable="false">http://risteh.com/StockTake/BH1/</string>-->
+    <string name="https_risteh_com_stocktake_bh1" translatable="false">http://ksa001.dynns.com/StockTake/BH1/</string>
     <string name="keyboard_visibility">Keyboard Visibility</string>
 <!--    6281155106432-->
 
