@@ -62,6 +62,7 @@ class MainActivity : ActivityBase() {
     private var areaId: Int = 0
     private var groupId: Int = 0
     private var quantity: Double = 0.0
+    private var counter: Int = 0
     private var barcodeText: String? = null
     private var langID: String = ""
     private var url: String = ""
@@ -263,8 +264,14 @@ class MainActivity : ActivityBase() {
         }
         binding.addBut.setOnClickListener {
             if (isValidForm()) {
+                binding.addBut.isEnabled = false
                 quantity = binding.addQuantityTv.text.toString().toDoubleOrNull()?:0.0
                 addProductAsUser(quantity)
+//                if(counter==0){
+//                    counter++
+
+               // }
+
 
             }
 
@@ -503,6 +510,7 @@ class MainActivity : ActivityBase() {
     }
 
     private fun clearData() {
+        counter=0
         barcodeText = ""
         itemCode = ""
         binding.barcodeTv.requestFocus()
@@ -728,9 +736,10 @@ class MainActivity : ActivityBase() {
             .getAsObject(PublicModel::class.java, object :
                 ParsedRequestListener<PublicModel> {
                 override fun onResponse(result: PublicModel) {
+                    binding.addBut.isEnabled = true
                     GlobalData.hideProgressDialog()
-                    if (result.status == 200) {
 
+                    if (result.status == 200) {
                         Toast(getString(R.string.added_sucess))
                         clearData()
 
@@ -744,6 +753,8 @@ class MainActivity : ActivityBase() {
 
                 override fun onError(anError: ANError) {
                     val message = getString(R.string.fail_to_add)
+                    binding.addBut.isEnabled = true
+
                     GlobalData.hideProgressDialog()
                     GlobalData.errorDialog(activiy, R.string.add_product, message)
 
