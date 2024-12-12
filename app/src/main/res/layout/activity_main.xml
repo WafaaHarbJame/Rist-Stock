@@ -94,7 +94,7 @@
                         android:id="@+id/barcodeTv"
                         style="@style/textViewStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:background="@null"
                         android:gravity="center_vertical"
@@ -104,9 +104,10 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 <!--                6281155106036-->
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/round_corner_fill_gray_stroke_light_gray"
@@ -128,7 +129,7 @@
                         android:id="@+id/codeTv"
                         style="@style/textViewStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:background="@null"
                         android:gravity="center_vertical"
@@ -137,9 +138,10 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/round_corner_fill_gray_stroke_light_gray"
@@ -160,7 +162,7 @@
                         android:id="@+id/referenceTv"
                         style="@style/textViewStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:background="@null"
                         android:gravity="center_vertical"
