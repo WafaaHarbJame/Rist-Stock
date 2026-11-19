@@ -14,8 +14,8 @@ android {
         applicationId "com.app.riststock"
         minSdk 21
         targetSdk 34
-        versionCode 19
-        versionName "3.19"
+        versionCode 20
+        versionName "3.20"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -56,7 +56,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     implementation 'androidx.viewpager:viewpager:1.0.0'
-    implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
+//    implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -68,7 +68,7 @@ dependencies {
 //    implementation 'com.amitshekhar.android:android-networking:1.0.2'
 
     implementation 'com.google.code.gson:gson:2.10.1'
-    implementation 'com.wang.avi:library:2.1.3' // loading views
+//    implementation 'com.wang.avi:library:2.1.3' // loading views
     implementation 'com.github.fccaikai:AndroidPermissionX:1.0.0'
     implementation 'com.github.dhaval2404:android-form-validation:1.0'
     implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
@@ -83,20 +83,18 @@ dependencies {
 
     implementation 'com.squareup.picasso:picasso:2.71828'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
-    implementation 'com.romandanylyk:pageindicatorview:1.0.3' // pager indecator
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    implementation 'com.aminography:choosephotohelper:1.3.1'
 //    implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     implementation 'io.michaelrocks:libphonenumber-android:8.12.28'
-    implementation 'com.loopeer.lib:shadow:0.0.3'
     implementation 'com.akexorcist:localization:1.2.10'
-    implementation 'com.jaeger.statusbarutil:library:1.5.1'
 //    implementation 'com.amitshekhar.android:jackson-android-networking:1.0.2'
     implementation 'com.github.amitshekhariitbhu.Fast-Android-Networking:rx-android-networking:1.0.4'
-    implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
     implementation 'com.jsibbold:zoomage:1.3.1'
+    implementation "io.github.maitrungduc1410:AVLoadingIndicatorView:2.3.0"
+
     implementation platform('com.google.firebase:firebase-bom:33.4.0')
     implementation 'com.google.android.gms:play-services-analytics:18.1.0'
     implementation 'com.google.firebase:firebase-analytics:22.1.2'

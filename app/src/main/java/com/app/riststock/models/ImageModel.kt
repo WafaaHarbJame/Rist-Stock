@@ -8,11 +8,11 @@ import com.google.gson.annotations.SerializedName
 
 
 class ImageModel {
-    @SerializedName("item_code")
+    @SerializedName("image_type")
     @Expose
-   var itemCode: String? = null
+     val imageType: String? = null
 
-    @SerializedName("imageData")
+    @SerializedName("image")
     @Expose
-    var imageData: String? = null
+     val image: String? = null
 }

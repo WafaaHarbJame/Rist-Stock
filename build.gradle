@@ -44,6 +44,10 @@ allprojects {
             url "https://www.jitpack.io"
             credentials { username authToken }
         }
+
+        maven {
+            url = uri("https://jitpack.io")
+        }
     }
 }
 tasks.register('clean', Delete) {

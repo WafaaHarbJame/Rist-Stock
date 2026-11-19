@@ -3,9 +3,9 @@ package com.app.riststock.spichalViews
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-import com.duolingo.open.rtlviewpager.RtlViewPager
+import androidx.viewpager.widget.ViewPager
 
-class CustomViewPager : RtlViewPager {
+class CustomViewPager : ViewPager {
     private var isPagingEnabled = true
 
     constructor(context: Context) : super(context) { //        if (ViewCompat.getLayoutDirection(this.getRootView()) == ViewCompat.LAYOUT_DIRECTION_LTR) {
